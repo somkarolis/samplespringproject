@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: "jdbc:mysql://localhost:3306/quiz?profileSQL=true"
+    username: root
+    password:
+  jpa:
+    database: MYSQL
+  mvc.view:
+    prefix: /WEB-INF/jsp/
+    suffix: .jsp
