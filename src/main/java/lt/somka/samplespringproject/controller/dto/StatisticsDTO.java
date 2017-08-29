@@ -16,51 +16,14 @@ public class StatisticsDTO {
     private List<Answer> answers;
     private Map<String, Map<String, Integer>> statistics = new HashMap<>();
 
-    public StatisticsDTO(List<Question> questions, List<QuestionValue> questionValues, List<Answer> answers) {
+    public StatisticsDTO(List<Question> questions, List<QuestionValue> questionValues, List<Answer> answers, Map<String, Map<String, Integer>> statistics) {
         this.questions = questions;
         this.questionValues = questionValues;
         this.answers = answers;
-        this.statistics = calculateStatistics();
+        this.statistics = statistics;
     }
 
     public StatisticsDTO() {
-    }
-
-
-    //todo move calculations to services
-    private Map<String, Map<String, Integer>> calculateStatistics() {
-        Map<String, Map<String, Integer>> statistics = new HashMap<>();
-        Integer count = 0;
-        for (Question question : questions) {
-            Map<String, Integer> answersCount = new HashMap<>();
-            if (question.getType().name().equals("INPUT")) {
-                for (QuestionValue questionValue : questionValues) {
-                    if (question.getId() == questionValue.getQuestionID()) {
-                        for (Answer answer : answers) {
-                            if (answer.getqValueID() == questionValue.getId()) {
-                                answersCount.put(answer.getInput(), null);
-                            }
-                        }
-                        statistics.put(question.getText(), answersCount);
-                    }
-                }
-            } else {
-                for (QuestionValue questionValue : questionValues) {
-                    if (question.getId() == questionValue.getQuestionID()) {
-                        for (Answer answer : answers) {
-                            if (answer.getqValueID() == questionValue.getId()) {
-                                count++;
-                            }
-                        }
-                        answersCount.put(questionValue.getText(), count);
-                        statistics.put(question.getText(), answersCount);
-                        count = 0;
-                    }
-                }
-            }
-        }
-
-        return statistics;
     }
 
     public List<Question> getQuestions() {

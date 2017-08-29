@@ -21,9 +21,9 @@
         <a href="/" class="navbar-brand">Quiz</a>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/get-statistics">Statistika</a></li>
-                <li><a href="/quiztest">Atsakyti klausimyna</a></li>
-                <li><a href="/question">Prideti klausima</a></li>
+                <li><a href="/get-statistics">Statistics</a></li>
+                <li><a href="/quiztest">Answer Quiz</a></li>
+                <li><a href="/question">Add new question</a></li>
             </ul>
         </div>
     </div>

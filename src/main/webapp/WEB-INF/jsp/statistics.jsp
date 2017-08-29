@@ -24,9 +24,9 @@
         <a href="/" class="navbar-brand">Quiz</a>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/get-statistics">Statistika</a></li>
-                <li><a href="/quiztest">Atsakyti klausimyna</a></li>
-                <li><a href="/question">Prideti klausima</a></li>
+                <li><a href="/get-statistics">Statistics</a></li>
+                <li><a href="/quiztest">Answer Quiz</a></li>
+                <li><a href="/question">Add new question</a></li>
             </ul>
         </div>
     </div>
@@ -38,12 +38,13 @@
 <div class="container">
 
   <div class="starter-template">
-    <h3>Klausimyno statistika:</h3>
+    <h3>Statistics:</h3>
     <table class="table table-striped table-bordered text-left">
     <thead>
         <tr>
-            <th>Klausimai ir atsakymu variantai</th>
-            <th>Atsakymu skaicius</th>
+            <th>Questions</th>
+            <th>Answer values</th>
+            <th>Answers count</th>
         </tr>
         </thead>
         <tbody>
@@ -52,15 +53,17 @@
                 <td>${entry.key}</td>
                         <c:forEach items="${entry.value}" var="answer">
                             <tr>
-                                <td>${answer.key}</td>
-                                    <td><c:choose>
-                                        <c:when test="${answer.value != null}">
-                                            ${answer.value}
-                                        </c:when>
-                                        <c:otherwise>
-                                        </c:otherwise>
-                                        </c:choose>
-                                    </td>
+                                <td>
+                                    <td>${answer.key}</td>
+                                        <td><c:choose>
+                                            <c:when test="${answer.value != null}">
+                                                ${answer.value}
+                                            </c:when>
+                                            <c:otherwise>
+                                            </c:otherwise>
+                                            </c:choose>
+                                        </td>
+                                </td>
                                 </tr>
                         </c:forEach>
             </tr>
